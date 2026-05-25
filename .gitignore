@@ -1,0 +1,7 @@
+.next
+node_modules
+tsconfig.tsbuildinfo
+dev-server-3001.log
+.agents
+.codex
+export
