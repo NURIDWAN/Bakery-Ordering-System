@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { SELECTED_ADDRESS_STORAGE_KEY } from "@/components/address-map-picker";
+import { SELECTED_ADDRESS_STORAGE_KEY } from "@/lib/address-storage";
 
 type StoredAddress = {
   label: string;

@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { divIcon, type LatLngTuple } from "leaflet";
 import { MapContainer, Marker, TileLayer, useMap, useMapEvents } from "react-leaflet";
+import { SELECTED_ADDRESS_STORAGE_KEY } from "@/lib/address-storage";
 
 type AddressSelection = {
   label: string;
@@ -14,7 +15,6 @@ type AddressSelection = {
 };
 
 const initialPosition: LatLngTuple = [-6.205, 106.832];
-const STORAGE_KEY = "batter-days-selected-address";
 
 function MapClickHandler({ onPick }: { onPick: (position: LatLngTuple) => void }) {
   useMapEvents({
@@ -161,7 +161,7 @@ export function AddressMapPicker() {
       lng
     };
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    window.localStorage.setItem(SELECTED_ADDRESS_STORAGE_KEY, JSON.stringify(payload));
     router.push("/account/addresses/new");
   };
 
@@ -239,5 +239,3 @@ export function AddressMapPicker() {
     </div>
   );
 }
-
-export { STORAGE_KEY as SELECTED_ADDRESS_STORAGE_KEY };
